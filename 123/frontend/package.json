@@ -1,0 +1,45 @@
+{
+  "name": "3d-mlops-copilot-frontend",
+  "private": true,
+  "version": "1.2.0",
+  "packageManager": "pnpm@10.34.9",
+  "type": "module",
+  "description": "Frontend for 3D MLOps Copilot Platform built with React, TypeScript, Material UI and SWR",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite --config config/vite.config.ts",
+    "build": "tsc -b && vite build --config config/vite.config.ts",
+    "lint": "oxlint -c config/oxlint.json src config/vite.config.ts",
+    "preview": "vite preview --config config/vite.config.ts",
+    "format": "prettier --config config/prettier.json --write src config index.html README.md docs",
+    "test": "vitest run --config config/vitest.config.ts"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.6",
+    "swr": "^2.3.6",
+    "three": "^0.181.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@types/three": "^0.181.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "oxlint": "^1.28.0",
+    "typescript": "~5.9.3",
+    "vite": "^7.2.2",
+    "prettier": "^3.6.2",
+    "vitest": "^4.0.0",
+    "jsdom": "^26.1.0",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1"
+  }
+}

@@ -1,0 +1,435 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 3px;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 6px;
+}
+.mono {
+  font-family: 'SFMono-Regular', Consolas, monospace !important;
+}
+.app-shell {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.app-header {
+  height: 76px;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 28px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.brand {
+  display: inline-flex;
+  gap: 13px;
+  align-items: center;
+  min-width: 0;
+}
+.brand-icon {
+  width: 39px;
+  height: 39px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--on-strong);
+  background: var(--strong);
+  border-radius: 10px;
+}
+.brand-icon svg {
+  font-size: 25px;
+}
+.brand-name {
+  font-size: 19px;
+  line-height: 1.35;
+  font-weight: 650;
+  letter-spacing: -0.5px;
+}
+.mobile-menu,
+.mobile-chat {
+  display: none !important;
+}
+.workspace-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 264px minmax(0, 1fr) 340px;
+}
+.desktop-sidebar {
+  background: var(--surface);
+  min-height: 0;
+  border-right: 1px solid var(--border);
+}
+.desktop-chat {
+  background: var(--surface);
+  min-height: 0;
+  border-left: 1px solid var(--border);
+  overflow: hidden;
+}
+.status-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  flex-shrink: 0;
+}
+.status-dot.completed {
+  background: var(--text-primary);
+}
+.status-dot.running {
+  background: var(--text-secondary);
+  box-shadow: 0 0 0 3px var(--surface-hover);
+}
+.status-dot.queued {
+  background: transparent;
+  border: 1px solid var(--text-secondary);
+}
+.main-content {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: 30px 32px;
+  background: var(--app-bg);
+}
+.experiment-page {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+.subtitle-divider {
+  padding: 0 8px;
+  color: var(--text-secondary);
+}
+.workspace-tabs {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 22px;
+}
+.workspace-tabs .MuiButton-root {
+  border-radius: 0;
+  padding: 8px 0 14px;
+  border-bottom: 2px solid transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  min-width: 0;
+}
+.workspace-tabs .MuiButton-root.active {
+  color: var(--strong);
+  border-bottom-color: var(--strong);
+}
+.workspace-tabs .MuiButton-startIcon svg {
+  font-size: 19px;
+}
+.experiment-tab-panel {
+  display: flex;
+  flex: 1;
+  min-height: 400px;
+}
+.scene-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  width: 100%;
+  overflow: hidden;
+  border-color: var(--border) !important;
+  border-radius: 13px !important;
+}
+.scene-toolbar {
+  min-height: 58px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.scene-toolbar .MuiToggleButton-root {
+  font-size: 12px;
+  text-transform: none;
+  line-height: 1.5;
+  padding: 4px 11px;
+  border-color: var(--border);
+}
+.scene-container {
+  flex: 1;
+  position: relative;
+  min-height: 340px;
+  background: var(--scene-bg);
+  overflow: hidden;
+}
+.scene-container > :first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.metric-card {
+  padding: 18px 21px;
+  border-color: var(--border) !important;
+  border-radius: 12px !important;
+}
+.metric-label {
+  color: var(--text-secondary);
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+.metric-value {
+  margin: 9px 0 0 !important;
+  font-size: 29px !important;
+  font-weight: 550 !important;
+  line-height: 1.2 !important;
+  letter-spacing: -0.8px !important;
+  font-variant-numeric: tabular-nums;
+}
+.metric-value span {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-left: 5px;
+  letter-spacing: 0;
+}
+.parameters-panel {
+  padding: 28px;
+  width: 100%;
+  border-radius: 13px !important;
+}
+.parameter-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+}
+.parameter-row:last-child {
+  border-bottom: 0;
+}
+.info-page {
+  max-width: 860px;
+  padding: 8px 0 20px;
+}
+.center-state {
+  min-height: 300px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 20px;
+  z-index: 9999;
+  padding: 12px;
+  color: var(--on-strong);
+  background: var(--strong);
+  border-radius: 8px;
+}
+.skip-link:focus {
+  top: 10px;
+}
+@media (min-width: 1600px) {
+  .workspace-grid {
+    grid-template-columns: 280px minmax(0, 1fr) 370px;
+  }
+  .main-content {
+    padding: 34px 40px;
+  }
+  .scene-container {
+    min-height: 440px;
+  }
+}
+@media (max-width: 1200px) {
+  .workspace-grid {
+    grid-template-columns: 250px minmax(0, 1fr);
+  }
+  .desktop-chat {
+    display: none;
+  }
+  .mobile-chat {
+    display: inline-flex !important;
+  }
+  .main-content {
+    padding: 28px;
+  }
+}
+@media (max-width: 760px) {
+  .app-header {
+    padding: 0 14px;
+    height: 74px;
+    min-height: 74px;
+    gap: 8px;
+  }
+  .brand {
+    gap: 9px;
+  }
+  .brand-icon {
+    width: 33px;
+    height: 33px;
+    border-radius: 8px;
+  }
+  .brand-icon svg {
+    font-size: 23px;
+  }
+  .brand-name {
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    max-width: 215px;
+  }
+  .mobile-menu {
+    display: inline-flex !important;
+  }
+  .docs-button {
+    display: none !important;
+  }
+  .workspace-grid {
+    display: block;
+    overflow: auto;
+  }
+  .desktop-sidebar {
+    display: none;
+  }
+  .main-content {
+    min-height: 100%;
+    overflow: visible;
+    padding: 25px 18px;
+  }
+  .page-heading {
+    margin-bottom: 23px;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .page-heading h1 {
+    font-size: 25px;
+  }
+  .page-heading > div > p {
+    font-size: 13px;
+  }
+  .experiment-state {
+    height: 27px !important;
+    font-size: 12px !important;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .workspace-tabs {
+    margin-bottom: 18px;
+  }
+  .experiment-tab-panel {
+    min-height: 438px;
+  }
+  .scene-toolbar {
+    padding: 0 12px;
+  }
+  .scene-container {
+    min-height: 380px;
+  }
+  .metrics-grid {
+    gap: 9px;
+    margin-top: 14px;
+  }
+  .metric-card {
+    padding: 15px 12px;
+  }
+  .metric-label {
+    font-size: 12px !important;
+  }
+  .metric-value {
+    font-size: 24px !important;
+  }
+  .metric-value span {
+    font-size: 12px;
+    margin-left: 3px;
+  }
+}
+@media (max-width: 480px) {
+  .app-header {
+    padding: 0 9px;
+    gap: 4px;
+  }
+  .brand-name {
+    max-width: 180px;
+    font-size: 14px;
+  }
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+  }
+  .brand {
+    gap: 7px;
+  }
+  .page-heading {
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  .scene-toolbar > div:first-child > p {
+    display: none;
+  }
+  .main-content {
+    padding: 22px 14px;
+  }
+  .metric-value {
+    font-size: 21px !important;
+  }
+  .metric-card {
+    padding: 14px 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
